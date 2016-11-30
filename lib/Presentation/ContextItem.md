@@ -53,6 +53,17 @@ if (Sitecore.Context.PageMode.IsPageEditor) {
 Get URL of current Item
 
 ```cs
- Sitecore.Data.Items.Item contextItem = Sitecore.Context.Item; 
- string url = Sitecore.Links.LinkManager.GetItemUrl(contextItem);
+Sitecore.Data.Items.Item contextItem = Sitecore.Context.Item; 
+string url = Sitecore.Links.LinkManager.GetItemUrl(contextItem);
  ```
+
+ Get URL of media Item
+
+ ```cs
+Sitecore.Data.Items.Item contextItem = Sitecore.Context.Item; Sitecore.Data.Fields.ImageField image = contextItem.Fields["imagefield"];
+
+if (image.MediaItem != null)
+{
+    string url = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(image.MediaItem));
+}
+```
