@@ -5,15 +5,29 @@
 ### Forms & Validation
 `
 @Html.ValidationMessage("invalidCredentials", new { @class = "alert alert-danger" }, "div")
+
 @Html.LabelFor(x => x.Email, new { @class = "control-label"})
-@Html.TextBoxFor(x => x.Email, new { @class = "form-control", id = "popupLoginEmail", @placeholder = Html.Sitecore().Dictionary("/Accounts/Login/Login E-mail Placeholder", "Enter your e-mail")})
+
+@Html.TextBoxFor(x => x.Email, new { @class = "form-control", id = "popupLoginEmail", @placeholder = 
+
+Html.Sitecore().Dictionary("/Accounts/Login/Login E-mail Placeholder", "Enter your e-mail")})
+
 @Html.ValidationMessageFor(x => x.Email, "", new { @class = "help-block" }, "p")
+
 @Html.ValidationErrorFor(x=>x.Password, "has-error")
-@Html.PasswordFor(x => x.Password, new { @class = "form-control", id = "popupLoginPassword", @placeholder = Html.Sitecore().Dictionary("/Accounts/Login/Login Password Placeholder", "Enter your password") })
+
+@Html.PasswordFor(x => x.Password, new { @class = "form-control", id = "popupLoginPassword", @placeholder = 
+
+Html.Sitecore().Dictionary("/Accounts/Login/Login Password Placeholder", "Enter your password") })
+
 @using (Html.BeginForm("Logout", "Accounts", FormMethod.Post))
+
 @using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new..
+
 @Html.Hidden("ReturnUrl", Model.ReturnUrl)
+
 @Html.AddUniqueFormId()
+
 @Html.ValidationSummary(true)
 `
 ### Security
